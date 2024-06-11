@@ -11,10 +11,21 @@ class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(3.0),
+          child: Container(
+            height:1.0,
+            color: Colors.grey.withOpacity(0.5),
+          )
+        ),
         title: Text('Second Screen', style: Theme.of(context).textTheme.titleMedium),
         centerTitle: true,
         leading: IconButton(
+          padding: const EdgeInsets.only(left: 20.0),
           icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF554AF0)), // Custom back icon
           onPressed: () {
             Navigator.pop(context); // Navigate back

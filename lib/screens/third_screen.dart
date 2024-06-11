@@ -1,79 +1,3 @@
-// import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-// import '../controllers/user_controller.dart';
-// import '../models/user.dart';
-
-// class ThirdScreen extends StatelessWidget {
-//   final UserController userController = Get.find();
-
-//   ThirdScreen({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Third Screen',
-//         style: Theme.of(context).textTheme.titleMedium),
-//         centerTitle: true,
-//         leading: IconButton(
-//           icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF554AF0)), // Custom back icon
-//           onPressed: () {
-//             Navigator.pop(context); // Navigate back
-//           },
-//         ),
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.only(top:15.0),
-//         child: Obx(() {
-//           if (userController.isLoading.value) {
-//             return const Center(child: CircularProgressIndicator());
-//           }
-//           if (userController.users.isEmpty) {
-//             return const Center(child: Text('No Users Found'));
-//           }
-//           return RefreshIndicator(
-//             onRefresh: () async {
-//               userController.users.clear();
-//               userController.currentPage.value = 1;
-//               userController.fetchUsers();
-//             },
-//             child: ListView.builder(
-//               itemCount: userController.users.length,
-//               physics: const AlwaysScrollableScrollPhysics(),
-//               itemBuilder: (context, index) {
-//                 User user = userController.users[index];
-//                 return ListTile(
-//                   leading: CircleAvatar(radius: 50, backgroundImage: NetworkImage(user.avatar)),
-//                   title: Text('${user.firstName} ${user.lastName}', style: Theme.of(context).textTheme.bodyMedium),
-//                   subtitle: Text(user.email, style: Theme.of(context).textTheme.bodySmall),
-//                   onTap: () {
-//                     userController.selectedUser.value = '${user.firstName} ${user.lastName}';
-//                     Get.back();
-//                   },
-//                 );
-                
-
-//               },
-//               controller: ScrollController()..addListener(() {
-//                   if(ScrollController().offset == ScrollController().position.maxScrollExtent){
-//                     userController.loadMoreUsers();
-//                   }
-
-//                   // if (ScrollController().position.atEdge) {
-//                   //   if (ScrollController().position.pixels != 0) {
-//                   //     userController.loadMoreUsers();
-//                   //   }
-//                   // }
-//                 }),
-//             ),
-//           );
-//         }),
-//     )
-//     );
-    
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/user_controller.dart';
@@ -87,39 +11,6 @@ class ThirdScreen extends StatefulWidget {
 }
 
 class ThirdScreenState extends State<ThirdScreen> {
-  // final ScrollController _scrollController = ScrollController();
-  // final UserController userController = Get.put(UserController());
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _scrollController.addListener(_onScroll);
-  // }
-
-  // @override
-  // void dispose() {
-  //   _scrollController.removeListener(_onScroll);
-  //   _scrollController.dispose();
-  //   super.dispose();
-  // }
-
-  // void _onScroll() {
-  //   if (_scrollController.position.extentAfter == 0) {
-  //     Get.defaultDialog(
-  //       title: 'Selamat',
-  //       middleText: 'Selamat Anda Sudah sampah bawah',
-  //     );
-  //     // userController.loadMoreUsers();
-  //   }
-  // }
-  // final ScrollController _scrollController = ScrollController();
-  // ThirdScreen({super.key}) {
-  //   _scrollController.addListener(() {
-  //     if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
-  //       userController.loadMoreUsers();
-  //     }
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -144,9 +35,19 @@ class ThirdScreenState extends State<ThirdScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(3.0),
+          child: Container(
+            height:1.0,
+            color: Colors.grey.withOpacity(0.5),
+          )
+        ),
         title: Text('Third Screen', style: Theme.of(context).textTheme.titleMedium),
         centerTitle: true,
         leading: IconButton(
+          padding: const EdgeInsets.only(left: 20.0),
           icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF554AF0)), // Custom back icon
           onPressed: () {
             Navigator.pop(context); // Navigate back

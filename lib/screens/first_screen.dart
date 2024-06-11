@@ -11,6 +11,7 @@ class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       body: Stack(
         children:[
           Container(
@@ -58,7 +59,7 @@ class FirstScreen extends StatelessWidget {
                   hintStyle: GoogleFonts.poppins(
                     fontSize: 16, fontWeight: FontWeight.w500, color:const Color(0x6867775C)
                   ),
-                  hintText: 'Palindrom',
+                  hintText: 'Palindrome',
                   ),
                 onChanged: (value) {
                   palindromeController.sentence.value = value;
