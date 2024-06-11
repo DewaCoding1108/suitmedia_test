@@ -10,7 +10,7 @@ https://youtu.be/hIU-AsZaID0
 ## Screenshot
 ### Screen 1 (Home Page)
 berikut merupakan halaman home page pada screen 1
-![1](screenshot/Screen1_1.png | =200x400)
+<img src="screenshot/Screen1_1.png" data-canonical-src="screenshot/Screen1_1.png" width="200" height="400" />
 
 ### Screen 1 (Is Palindrom)
 berikut merupakan hasil output berupa dialog ketika is palindrom
